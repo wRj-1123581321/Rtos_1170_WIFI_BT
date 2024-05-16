@@ -1,0 +1,7 @@
+        <#if memory.name=="SRAM_OC1">
+        *(.bss*)
+        </#if>
+		<#if memory.name=="BOARD_SDRAM">
+        *(.gsd.$BOARD_SDRAM)
+		</#if>
+		

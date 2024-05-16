@@ -1,0 +1,13 @@
+wlan-add add ssid NXP_SOFT_AP ip:192.168.10.1,192.168.10.1,255.255.255.0 role uap channel 36 wpa2 12345678		//设置8987参数
+
+wlan-set-uap-bandwidth 3			//1设置wifi带宽为20MB 2设置wifi带宽为40MB 3设置wifi带宽为80MB 
+
+wlan-start-network add				//启动网络
+
+一，跑TCP
+iperf -s -B 192.168.10.1		//	设置8987为TCP通讯服务端
+-c 192.168.10.1 -i 1 -t 20 -w 512k		//设置iper2工具为客户端跑TCP
+
+二，跑UDP
+iperf -s -u -B 192.168.10.1		//	设置8987为UDP通信服务端
+-c 192.168.10.1 -i 1 -t 20 -u -b200m	////设置iper2工具为客户端跑UDP
